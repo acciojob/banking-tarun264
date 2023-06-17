@@ -38,26 +38,21 @@ public class BankAccount {
     }
 
     public String generateAccountNumber(int digits, int sum) throws Exception{
-        StringBuilder sb= new StringBuilder();
+
        if(digits*9>sum){
            throw new Exception("Account Number can not be generated");
         }
-       else {
-           int remainingSum = sum;
-           for (int i = 0; i < digits - 1; i++) {
-               if (remainingSum >= 9) {
-                   sb.append(i);
-                   remainingSum -= i;
-               } else {
-                   sb.append(i);
-                   remainingSum = 0;
-               }
+           String accNo = "";
+           while (sum > 9) {
+               accNo += '9';
+               sum -= 9;
            }
+           accNo += (sum + "");
+           while (accNo.length() < digits) {
+               accNo += '0';
+           }
+           return accNo;
        }
-           return sb.toString();
-
-       }
-
     public void deposit(double amount) {
         this.balance+=amount;
     }
