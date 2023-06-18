@@ -47,7 +47,7 @@ public class BankAccount {
                accNo += '9';
                sum -= 9;
            }
-           accNo += (sum + "");
+           accNo += (sum);
            while (accNo.length() < digits) {
                accNo += '0';
            }
