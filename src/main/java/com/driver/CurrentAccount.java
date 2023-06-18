@@ -61,7 +61,7 @@ public class CurrentAccount extends BankAccount {
         for(int i=0;i<26;i++){
             while(freq[i]>0){
                 if(idx>=n) idx=1;
-                ans[i]= (char) freq[i+'a'];
+                ans[i]= (char) (i+'a');
                 idx+=2;
                 freq[i]--;
             }
@@ -69,8 +69,8 @@ public class CurrentAccount extends BankAccount {
         return String.valueOf(ans);
     }
     public boolean validateId(String s){
-        for(int i=1;i<s.length();i++) {
-            if (s.charAt(i) == s.charAt(i - 1)) {
+        for(int i=0;i<s.length()-1;i++) {
+            if (s.charAt(i) == s.charAt(i + 1)) {
                 return false;
             }
         }  return true;
