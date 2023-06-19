@@ -13,6 +13,9 @@ public class BankAccount {
 
     }
 
+    public BankAccount() {
+    }
+
     public String getName() {
         return name;
     }
@@ -42,16 +45,17 @@ public class BankAccount {
        if(digits*9>sum){
            throw new Exception("Account Number can not be generated");
         }
-           String accNo = "";
+           StringBuilder sb =new StringBuilder();
            while (sum > 9) {
-               accNo += '9';
+               sb.append('9');
                sum -= 9;
            }
-           accNo += (sum);
-           while (accNo.length() < digits) {
-               accNo += '0';
+           sb.append(sum);
+           sum=0;
+           while (sb.length() < digits) {
+              sb.append('0');
            }
-           return accNo;
+           return sb.toString();
        }
     public void deposit(double amount) {
         this.balance+=amount;
