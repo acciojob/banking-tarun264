@@ -42,19 +42,21 @@ public class BankAccount {
 
     public String generateAccountNumber(int digits, int sum) throws Exception{
 
-       if(digits*9>sum){
-           throw new Exception("Account Number can not be generated");
-        }
            StringBuilder sb =new StringBuilder();
-           while (sum > 9) {
-               sb.append('9');
+           for (int i=0;i<digits;i++) {
+               if (sum >= 9)
+                   sb.append(9);
                sum -= 9;
            }
-           sb.append(sum);
-           sum=0;
-           while (sb.length() < digits) {
-              sb.append('0');
+               else {
+                   sb.append(sum);
+                   sum=0;
+               }
+
+           if(sum>0){
+               throw new Exception("Account Number Cannot be generated");
            }
+
            return sb.toString();
        }
     public void deposit(double amount) {
