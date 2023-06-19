@@ -44,14 +44,14 @@ public class BankAccount {
 
            StringBuilder sb =new StringBuilder();
            for (int i=0;i<digits;i++) {
-               if (sum >= 9)
+               if (sum >= 9) {
                    sb.append(9);
-               sum -= 9;
-           }
-               else {
+                   sum -= 9;
+               } else {
                    sb.append(sum);
-                   sum=0;
+                   sum = 0;
                }
+           }
 
            if(sum>0){
                throw new Exception("Account Number Cannot be generated");
