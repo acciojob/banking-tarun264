@@ -53,7 +53,7 @@ public class BankAccount {
                }
            }
 
-           if(sum>0){
+           if(sum>0 || sum>9*digits){
                throw new Exception("Account Number Cannot be generated");
            }
 
